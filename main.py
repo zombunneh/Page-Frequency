@@ -27,7 +27,6 @@ def main():
         print(url_list)
 
 
-
 if __name__ == '__main__':
     main()
 
