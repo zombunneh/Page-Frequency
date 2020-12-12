@@ -10,12 +10,24 @@
 # Future improvements
 # TODO: add functionality to read a collection of webpages from a master page rather than having to add specific pages
 
-def print_hi(name):
-    print(f'Hi, {name}')
+import validators
+
 
 def main():
-    print('Enter in the URL to ')
+    url_list = []
+
+    print('Enter a URL or multiple URL\'s, separated by a new line and press enter when done:')
+
+    sentinel = ''
+    for url_input in iter(input, sentinel):
+        if not validators.url(url_input):
+            print('This is not a valid url, please input a valid url or end input')
+            pass
+        url_list.append(url_input)
+        print(url_list)
+
+
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
