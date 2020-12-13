@@ -29,7 +29,7 @@ def main():
         url_list.append(url_input)
 
     page_fetcher = GetPages()
-    page_fetcher.fetch_pages(url_list)  # Fetch html representation of the url's supplied
+    page_fetcher.fetch_pages(url_list)  # Fetch html representation of the url list supplied
 
     text_scraper = ScrapeText()
     text_scraper.extract_text(page_fetcher.page_text_list)  # Return a more readable text from the html supplied
