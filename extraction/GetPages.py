@@ -1,9 +1,11 @@
+import requests
+
+
 class GetPages:
-    x = 0
 
-# fetches a specified webpage
-    def fetch_page(self):
+    # fetches a specified webpage or webpages
+    def fetch_pages(self, pages):
         print("fetch_page called")
-
-    def fetch_multiple_pages(self):
-        print("fetch_multiple_pages called")
+        for page in pages:
+            response = requests.get(page)
+            type(response)

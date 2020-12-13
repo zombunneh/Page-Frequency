@@ -11,6 +11,7 @@
 # TODO: add functionality to read a collection of webpages from a master page rather than having to add specific pages
 
 import validators
+from extraction.GetPages import GetPages
 
 
 def main():
@@ -25,6 +26,9 @@ def main():
             pass
         url_list.append(url_input)
         print(url_list)
+
+    page_fetcher = GetPages()
+    page_fetcher.fetch_pages(url_list)
 
 
 if __name__ == '__main__':
