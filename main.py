@@ -12,6 +12,7 @@
 
 import validators
 from extraction.GetPages import GetPages
+from extraction.ScrapeText import ScrapeText
 
 
 def main():
@@ -19,16 +20,19 @@ def main():
 
     print('Enter a URL or multiple URL\'s, separated by a new line and press enter when done:')
 
+    # Accepts user input until enter is pressed on a blank line
     sentinel = ''
     for url_input in iter(input, sentinel):
         if not validators.url(url_input):
             print('This is not a valid url, please input a valid url or end input')
-            pass
+            continue
         url_list.append(url_input)
-        print(url_list)
 
     page_fetcher = GetPages()
-    page_fetcher.fetch_pages(url_list)
+    page_fetcher.fetch_pages(url_list)  # Fetch html representation of the url's supplied
+
+    text_scraper = ScrapeText()
+    text_scraper.extract_text(page_fetcher.page_text_list)  # Return a more readable text from the html supplied
 
 
 if __name__ == '__main__':
