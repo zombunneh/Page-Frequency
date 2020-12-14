@@ -1,2 +1,3 @@
 https://ncode.syosetu.com/n3586fd/1/
 https://www.google.com
+https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html

@@ -11,5 +11,5 @@ class ScrapeText:
     def extract_text(self, page_text_list):
         for html in page_text_list:
             scraper = BeautifulSoup(html, "html5lib")
-            self.scraped_text.append(scraper.title)
-            print(scraper.title)
+            self.scraped_text.append(scraper.getText())
+            print(scraper.getText())
