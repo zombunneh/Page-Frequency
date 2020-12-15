@@ -8,6 +8,7 @@ class ScrapeText:
     scraped_text = []
 
     # Extracts the text from the supplied list of pages
+    # TODO cleanup extracted text further
     def extract_text(self, page_text_list):
         for html in page_text_list:
             scraper = BeautifulSoup(html, "html5lib")
