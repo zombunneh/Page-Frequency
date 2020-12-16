@@ -9,10 +9,13 @@
 
 # Future improvements
 # TODO: add functionality to read a collection of webpages from a master page rather than having to add specific pages
+import os
 
+import nltk
 import validators
 from extraction.GetPages import GetPages
 from extraction.ScrapeText import ScrapeText
+from transformation.TransformText import TransformText
 
 
 def main():
@@ -33,6 +36,8 @@ def main():
 
     text_scraper = ScrapeText()
     text_scraper.extract_text(page_fetcher.page_text_list)  # Return a more readable text from the html supplied
+
+    text_transformer = TransformText()
 
 
 if __name__ == '__main__':
