@@ -23,3 +23,6 @@ class TransformText:
             if word not in sw:
                 words_nostop.append(word)
         return words_nostop
+
+# possible = os.listdir('/home/matth/corpora/stopwords')
+# language in possible
