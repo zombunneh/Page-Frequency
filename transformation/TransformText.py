@@ -10,7 +10,7 @@ class TransformText:
     # Separates text by white space, and converts to lowercase
     def tokenise_text_by_space(self, text):
         words = []
-        ps = '\w+'
+        ps = "\w+"
         token_text = re.findall(ps, text)
         for word in token_text:
             words.append(word.lower())

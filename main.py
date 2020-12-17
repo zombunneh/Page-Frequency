@@ -14,6 +14,7 @@
 import validators
 from extraction.GetPages import GetPages
 from extraction.ScrapeText import ScrapeText
+from transformation.CompileFrequency import CompileFrequency
 from transformation.TransformText import TransformText
 
 
@@ -40,6 +41,9 @@ def main():
     text_transformer = TransformText()
     word_list = text_transformer.tokenise_text_by_space(text)  # Returns a list of words separated by whitespace
     word_list_ns = text_transformer.remove_stopwords(word_list, 'english')  # Remove stopwords from the list in given language
+
+    freq_compiler = CompileFrequency()
+    freq_compiler.calculate_word_freq(word_list_ns)
 
 
 if __name__ == '__main__':

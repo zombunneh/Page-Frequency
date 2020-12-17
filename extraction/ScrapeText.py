@@ -5,12 +5,12 @@ from bs4 import BeautifulSoup
 
 
 class ScrapeText:
-    scraped_text = []
+    scraped_text = ""
 
     # Extracts the text from the supplied list of pages
     # TODO cleanup extracted text further
     def extract_text(self, page_text_list):
         for html in page_text_list:
             scraper = BeautifulSoup(html, "html5lib")
-            self.scraped_text.append(scraper.getText())
+            self.scraped_text = scraper.getText()
             print(scraper.getText())
