@@ -12,6 +12,8 @@
 
 
 import validators
+
+from display.DisplayResults import DisplayResults
 from extraction.GetPages import GetPages
 from extraction.ScrapeText import ScrapeText
 from transformation.CompileFrequency import CompileFrequency
@@ -43,7 +45,11 @@ def main():
     word_list_ns = text_transformer.remove_stopwords(word_list, 'english')  # Remove stopwords from the list in given language
 
     freq_compiler = CompileFrequency()
-    freq_compiler.calculate_word_freq(word_list_ns)
+    freq_list = freq_compiler.calculate_word_freq(word_list_ns)
+
+    results_display = DisplayResults()
+    results_display.display_freq_plot(freq_list)
+    results_display.display_freq_text(freq_list)
 
 
 if __name__ == '__main__':
