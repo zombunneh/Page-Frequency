@@ -14,6 +14,7 @@
 import validators
 
 from display.DisplayResults import DisplayResults
+from display.ExportResults import ExportResults
 from extraction.GetPages import GetPages
 from extraction.ScrapeText import ScrapeText
 from transformation.CompileFrequency import CompileFrequency
@@ -45,11 +46,14 @@ def main():
     word_list_ns = text_transformer.remove_stopwords(word_list, 'english')  # Remove stopwords from the list in given language
 
     freq_compiler = CompileFrequency()
-    freq_list = freq_compiler.calculate_word_freq(word_list_ns)
+    freq_list = freq_compiler.calculate_word_freq(word_list_ns)  # Returns a frequency distribution of all the words in the list supplied
 
     results_display = DisplayResults()
-    results_display.display_freq_plot(freq_list)
-    results_display.display_freq_text(freq_list)
+    results_display.display_freq_plot(freq_list)  # Plots the frequency distribution
+    results_display.display_freq_text(freq_list)  # Prints the most common word, and a list of the 5 most common words
+
+    results_exporter = ExportResults()
+    print('Would you like to save these results?')
 
 
 if __name__ == '__main__':
