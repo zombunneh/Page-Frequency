@@ -49,7 +49,8 @@ def main():
     freq_list = freq_compiler.calculate_word_freq(word_list_ns)  # Returns a frequency distribution of all the words in the list supplied
 
     results_display = DisplayResults()
-    while True:  # Get user input to determine the number of results to display, repeat input if an int is not the input
+    # Get user input to determine the number of results to display, repeat input if an int is not the input
+    while True:
         try:
             numResults = int(input('Input the number of results to display\n'))
         except ValueError:
@@ -60,7 +61,7 @@ def main():
                 break
             continue
     results_display.display_freq_plot(freq_list, numResults)  # Plots the frequency distribution
-    results_display.display_freq_text(freq_list, numResults)  # Prints the most common word, and a list of the 5 most common words
+    results_display.display_freq_text(freq_list, numResults)  # Prints the most common word, and a list of the most common words
 
     results_exporter = ExportResults()
     print('Would you like to save these results?')
