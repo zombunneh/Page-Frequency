@@ -1,8 +1,8 @@
 class DisplayResults:
 
-    def display_freq_text(self, freq):
+    def display_freq_text(self, freq, numResults):
         print(freq.max())
-        print(freq.most_common(5))
+        print(freq.most_common(numResults))
 
-    def display_freq_plot(self, freq):
-        freq.plot(25)
+    def display_freq_plot(self, freq, numResults):
+        freq.plot(numResults)
