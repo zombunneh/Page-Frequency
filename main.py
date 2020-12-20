@@ -65,6 +65,7 @@ def main():
 
     results_exporter = ExportResults()
     print('Would you like to save these results?')
+    results_exporter.save_as_txt(results_display.most_common_words)  # Retrieves the list of most common words and saves it to a text file
 
 
 if __name__ == '__main__':
