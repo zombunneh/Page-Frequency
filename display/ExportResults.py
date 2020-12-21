@@ -10,3 +10,10 @@ class ExportResults:
 
     def save_as_csv(self, word_list):
         word_list
+
+
+    def save_page_list(self, pages):
+        f = open("page_list.txt", "w+")
+        for page in pages:
+            f.write(page + '\n')
+        f.close()
