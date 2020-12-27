@@ -13,4 +13,3 @@ class ScrapeText:
         for html in page_text_list:
             scraper = BeautifulSoup(html, "html5lib")
             self.scraped_text = scraper.getText()
-            #print(scraper.getText())
