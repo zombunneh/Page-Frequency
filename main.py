@@ -64,8 +64,16 @@ def main():
     results_display.display_freq_text(freq_list, numResults)  # Prints the most common word, and a list of the most common words
 
     results_exporter = ExportResults()
-    print('Would you like to save these results?')
-    results_exporter.save_as_txt(results_display.most_common_words)  # Retrieves the list of most common words and saves it to a text file
+    # Get user input to determine whether to save the results of analysis
+    while True:
+        answer = str(input('Would you like to save these results? (y/n)')).lower().strip()
+        if answer == 'y':
+            results_exporter.save_as_txt(results_display.most_common_words)  # Retrieves the list of most common words and saves it to a text file
+            break
+        elif answer == 'n':
+            break
+        else:
+            continue
 
 
 if __name__ == '__main__':

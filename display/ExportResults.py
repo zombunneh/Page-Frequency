@@ -6,6 +6,7 @@ class ExportResults:
             temp_word = word + ' ' + (str(freq))
             f.write(temp_word + '\n')
         f.close()
+        print('saved to word_list.txt')
 
 
     def save_as_csv(self, word_list):
