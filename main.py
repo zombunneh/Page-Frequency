@@ -10,7 +10,7 @@
 # Future improvements
 # TODO: add functionality to read a collection of webpages from a master page rather than having to add specific pages
 # TODO: Add support for multiple languages
-
+import os
 
 import validators
 
@@ -54,12 +54,37 @@ def get_page_words(urls):
 
     text_transformer = TransformText()
     word_list = text_transformer.tokenise_text_by_space(text_scraper.scraped_text)  # Returns a list of words separated by whitespace
-    return text_transformer.remove_stopwords(word_list, 'english')  # Remove stopwords from the list in given language
+
+    possible = os.listdir('C:/Users/matth/AppData/Roaming/nltk_data/corpora/stopwords')  # TODO: Change to locate  user stopwords directory
+
+    index = 0
+
+    for word in possible:
+        index += 1
+        print(f'{index}. {word}')
+    print('Enter the number of the language your page(s) are in')
+
+    language = ""
+
+    while True:  # TODO: Implement a method of recognising what language our scraped text is automatically
+        try:
+            indexLang = int(input())
+        except ValueError:
+            print('That\'s not an int!')
+            continue
+        else:
+            if validators.between(len(possible), 0):
+                language = possible[indexLang]
+                break
+            continue
+
+    return text_transformer.remove_stopwords(word_list, language)  # Remove stopwords from the list in given language
 
 
 def show_results(freq_dist):
     results_display = DisplayResults()
     # Get user input to determine the number of results to display, repeat input if an int is not the input
+    numResults = 10  # default
     while True:
         try:
             numResults = int(input('Input the number of results to display\n'))
