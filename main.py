@@ -74,7 +74,7 @@ def get_page_words(urls):
             continue
         else:
             if validators.between(len(possible), 0):
-                language = possible[indexLang]
+                language = possible[indexLang-1]  # Correct for indexing from 0
                 break
             continue
 
